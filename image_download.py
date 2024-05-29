@@ -3,7 +3,12 @@ import requests
 
 def download_image(image_url):
     filename = image_url.split('?')[0].split('/')[-1]
-    safe_filename = filename.replace(':', '_').replace('/', '_').replace('?', '_').replace('&', '_') + ".jpg"
+    filename_parts = filename.split(':')
+    filename_parts[0] = filename_parts[0].replace('/', '_')
+    filename_parts[0] = filename_parts[0].replace('?', '_')
+    filename_parts[0] = filename_parts[0].replace('&', '_')
+    filename_parts[0] = filename_parts[0] + ".jpg"
+    safe_filename = '_'.join(filename_parts)
     file_path = os.path.join('generated', safe_filename)
 
     os.makedirs('generated', exist_ok=True)
