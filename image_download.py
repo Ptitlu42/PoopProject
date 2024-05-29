@@ -12,7 +12,7 @@ def download_image(image_url):
     file_path = os.path.join('generated', safe_filename)
 
     os.makedirs('generated', exist_ok=True)
-    
+
     try:
         response = requests.get(image_url, timeout=4242)
     except requests.Timeout:
