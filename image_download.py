@@ -1,7 +1,5 @@
-import requests
-from generate_image import generate_image
-
 import os
+import requests
 
 def download_image(image_url):
     filename = image_url.split('?')[0].split('/')[-1]
@@ -9,12 +7,15 @@ def download_image(image_url):
     file_path = os.path.join('generated', safe_filename)
 
     os.makedirs('generated', exist_ok=True)
-
-    response = requests.get(image_url)
+    
+    try:
+        response = requests.get(image_url, timeout=4242)
+    except requests.Timeout:
+        download_image(image_url)
+        return
 
     if response.status_code == 200:
         with open(file_path, 'wb') as image_file:
             image_file.write(response.content)
-        print(f"L'image a été téléchargée et enregistrée sous : {file_path}")
     else:
-        print(f"Erreur lors du téléchargement de l'image : {response.status_code}")
+        download_image(image_url)
