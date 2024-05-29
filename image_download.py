@@ -24,3 +24,5 @@ def download_image(image_url):
             image_file.write(response.content)
     else:
         download_image(image_url)
+
+    return safe_filename

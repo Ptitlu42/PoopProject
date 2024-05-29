@@ -1,18 +1,14 @@
 from twilio.rest import Client
 from random_messages import generate_random_message
-from config import account_sid, auth_token, destination_number
+from config import account_sid, auth_token
 
 client = Client(account_sid, auth_token)
 
-SENDBY = "Daily POOP"
-SMS_BODY = generate_random_message()
 
-def send_sms(body, to=destination_number, from_=SENDBY):
+def send_sms(message, destination_number):
     msg = client.messages.create(
-        body=body,
-        from_=from_,
-        to=to
+        body=message,
+        from_="Daily POOP",
+        to=destination_number,
     )
     return msg.sid
-
-send_sms(SMS_BODY)
