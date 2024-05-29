@@ -17,7 +17,6 @@ adjective_list = [
     "Immonde",
     "Grumeleux",
     "Abject",
-    "Vicié",
     "Atroce",
     "Insalubre",
     "Lamentable",
