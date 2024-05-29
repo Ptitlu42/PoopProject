@@ -12,6 +12,3 @@ def send_sms(message, destination_number):
         to=destination_number,
     )
     return msg.sid
-
-
-send_sms("bit.ly/dailyPOOP", "+33787215507")
