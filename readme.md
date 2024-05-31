@@ -1,4 +1,5 @@
 # 💩 AI-Generated Collectible Poop Card Game 💩
+![alt text](image.png)
 
 ## 🚽 What's the Scoop?
 Welcome to the ultimate throne room where AI and humor collide to create the most unforgettable, collectible Poop card game. Flush your boredom away as you collect and compete with cards that are as unique as... well, bowel movements.
