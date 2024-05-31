@@ -554,6 +554,78 @@ video {
   --tw-contain-style:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.static {
+  position: static;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 :root {
   --pink: #fe218b;
   --yellow: #fed700;
@@ -615,3 +687,42 @@ footer {
   margin-top: auto;
 }
 
+.card {
+  width: 250px;
+  height: 350px;
+  border: 20px solid gradient(90deg, var(--pink), var(--yellow), var(--blue));
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px var(--gray);
+  background-color: var(--white);
+  position: relative;
+  margin: 20px;
+}
+
+.card_name {
+  border-bottom: 2px solid var(--gray);
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card_image-container {
+  width: 100%;
+  height: 70%;
+  border: 2px solid var(--gray);
+  margin-top: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card_img {
+  width: 100%;
+  height: auto;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
