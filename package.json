@@ -1,0 +1,24 @@
+{
+  "name": "caca",
+  "version": "1.0.0",
+  "description": "## 🚽 What's the Scoop? Welcome to the ultimate throne room where AI and humor collide to create the most unforgettable, collectible Poop card game. Flush your boredom away as you collect and compete with cards that are as unique as... well, bowel movements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"python manage.py runserver\" \"npm run watch:css\" \"npm run browser-sync\"",
+    "watch:css": "tailwindcss -i ./static/css/styles.css -o ./static/css/main.css --watch",
+    "browser-sync": "browser-sync start --proxy 'localhost:8000' --files './static/css/*.css' --no-open --no-notify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
