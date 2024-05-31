@@ -21,7 +21,7 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
 - Python 3.x
 - Django
 - Docker
-- MySQL
+- MariaDB
 - NPM
 - Twilio or another SMS gateway for those important Poop calls
 
@@ -49,12 +49,6 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
    ```bash
    npm start
    ```
-
-### 🧴 Usage
-- **Start the Flush**:
-  ```bash
-  docker-compose up
-  ```
 - **Visit the Latrine** at `http://localhost:8000/welcome`.
 - **Commence the Collection**: Follow the instructions to collect and cherish your Poop cards.
 
