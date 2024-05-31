@@ -11,3 +11,7 @@ destination_number2 = os.getenv('DESTINATION_PHONE_NUMBER2')#TODO database
 phone_number_sid = os.getenv('PHONE_NUMBER_SID')
 openai_key = os.getenv('OPEN_API_KEY')
 dropbox_token= os.getenv('DROPBOX_TOKEN')
+mariadb_password = os.getenv('MARIADB_PASSWORD')
+mariadb_root_password = os.getenv('MARIADB_ROOT_PASSWORD')
+mariadb_database = os.getenv('MARIADB_DATABASE')
+mariadb_user = os.getenv('MARIADB_USER')
