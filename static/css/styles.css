@@ -17,11 +17,12 @@
     font-weight: normal;
     font-style: normal;
 }
-html { 
+
+html {
     height: 100%;
 }
 
-body { 
+body {
     background-color: var(--white);
     font-family: 'PoorStory', Arial, sans-serif;
     @apply min-h-screen;
@@ -56,3 +57,42 @@ footer {
     @apply mt-auto;
 }
 
+.card {
+    width: 250px;
+    height: 350px;
+    border: 20px solid gradient(90deg, var(--pink), var(--yellow), var(--blue));
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px var(--gray);
+    background-color: var(--white);
+    position: relative;
+    margin: 20px;
+}
+
+.card_name {
+    border-bottom: 2px solid var(--gray);
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card_image-container {
+    width: 100%;
+    height: 70%;
+    border: 2px solid var(--gray);
+    margin-top: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card_img {
+    width: 100%;
+    height: auto;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

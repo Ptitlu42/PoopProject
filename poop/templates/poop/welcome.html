@@ -1,6 +1,33 @@
 {% include 'poop/header.html' %}
-<body >
-    <h1 class="center ">Bienvenue dans le jeu de cartes à collectionner Ca'carte !</h1>
+{% load static %}
+<body>
+    <h1 class="center">Bienvenue dans le jeu de cartes à collectionner Ca'carte !</h1>
+    <div class="flex flex-wrap justify-center">
+        <div class="card">
+            <div class="card_name">Caca de taureau enervé</div>
+            <div class="card_image-container">
+                <img class="card_img" src="{% static 'img-1lZXpt0aqcS88b8Fa0rjgKyi.png.jpg' %}" alt="Caca de taureau enervé">
+            </div>
+        </div>
+        <div class="card m-2">
+            <div class="card_name">Gros caca de bison</div>
+            <div class="card_image-container">
+                <img class="card_img" src="{% static 'img-2ddDAaHoImISCJ7K5QfUDmOI.png.jpg' %}" alt="Caca de taureau enervé">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card_name">Le caca cul du bouc</div>
+            <div class="card_image-container">
+                <img class="card_img" src="{% static 'img-7YB1ODD87gZtuWYdD1Za1vxJ.png.jpg' %}" alt="Caca de taureau enervé">
+            </div>
+        </div>
+        <div class="card m-2">
+            <div class="card_name">Grenouille caca empalée</div>
+            <div class="card_image-container">
+                <img class="card_img" src="{% static 'img-u3kSJ6usdVSaD9l6FJz0tzH0.png.jpg' %}" alt="Caca de taureau enervé">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 {% include 'poop/footer.html' %}
