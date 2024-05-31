@@ -21,18 +21,22 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
 - Django
 - Docker
 - MySQL
+- NPM
 - Twilio or another SMS gateway for those important Poop calls
 
 ### 🛁 Installation
 1. **Clone this Throne**:
    ```bash
-   git clone https://github.com/your-username/your-project-name.git
+   git clone https://github.com/Ptitlu42/PoopProject.git
    ```
 2. **Dive into the Sewer**:
    ```bash
-   cd your-project-name
+   cd PoopProject
    ```
 3. **Summon the Sewage System**:
+   ```bash
+   npm install
+   ```
    ```bash
    docker-compose up --build
    ```
@@ -42,7 +46,7 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
    ```
 5. **Crown the Porcelain God**:
    ```bash
-   docker-compose exec web python manage.py createsuperuser
+   npm start
    ```
 
 ### 🧴 Usage
@@ -50,7 +54,7 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
   ```bash
   docker-compose up
   ```
-- **Visit the Latrine** at `http://localhost:8000`.
+- **Visit the Latrine** at `http://localhost:8000/welcome`.
 - **Commence the Collection**: Follow the instructions to collect and cherish your Poop cards.
 
 ## ⚙️ Configuration

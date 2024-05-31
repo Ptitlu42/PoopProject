@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --pink: #fe218b;
+    --yellow: #fed700;
+    --blue: #21b0fe;
+    --white: #E9DECB;
+    --brown: #6C3417;
+    --gray: #5D5851;
+}
+
+@font-face {
+    font-family: 'PoorStory';
+    src: url('../fonts/PoorStory-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html { 
+    height: 100%;
+}
+
+body { 
+    background-color: var(--white);
+    font-family: 'PoorStory', Arial, sans-serif;
+    @apply min-h-screen;
+    @apply flex;
+    @apply flex-col;
+}
+
+.caca_head {
+    @apply text-4xl;
+    @apply font-bold;
+    @apply text-center;
+    @apply text-white;
+    background-color: var(--gray);
+}
+
+.center {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+}
+
+.footer-text {
+    @apply text-lg;
+    @apply italic;
+}
+
+.main-content {
+    @apply flex-grow;
+}
+
+footer {
+    @apply mt-auto;
+}
+
