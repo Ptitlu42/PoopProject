@@ -96,3 +96,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.card_footer {
+    margin-top: 8%;
+}

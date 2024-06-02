@@ -1,0 +1,16 @@
+{% include 'poop/header.html' %}
+{% load static %}
+
+{% for card in cards %}
+<div class="card">
+    <div class="card_name">{{ card.prompt }}</div>
+    <div class="card_image-container">
+        <img class="card_img" src="{% static card.image_path %}" alt="{{ card.prompt }}">
+    </div>
+    <div class="card_footer">
+        <div class="card_id" style="float: left;">Numéro: {{ card.id }}</div>
+        <div class="card_generated_by" style="float: right;">Générée par: {{ card.generated_by.name }}</div>
+    </div>
+</div>
+{% endfor %}  
+{% include 'poop/footer.html' %}

@@ -9,6 +9,7 @@ urlpatterns = [
     path('welcome/', views.welcome, name='welcome'),
     path ('user/<str:phone_number>/', views.show_user, name='user'),
     path ('users/', views.show_users, name='users'),
+    path ('cards/', views.cards, name='cards'),
 ]
 
 if settings.DEBUG:
