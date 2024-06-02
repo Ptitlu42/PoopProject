@@ -19,4 +19,4 @@ class Command(BaseCommand):
         ]
         
         for user in users:
-            User.objects.create(**user)
+            User.objects.create_user(**user)

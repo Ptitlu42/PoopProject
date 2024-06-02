@@ -5,12 +5,7 @@ from poop.models import Draw, User
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        user_id = 1 
-        user = User.objects.get_user_by_id(user_id)
-
-        draws = [
-            {'user': user, 'draw_count': 4},
-        ]
+        users_list = User.objects.get_all_users()
         
-        for draw in draws:
-            Draw.objects.create(**draw)
+        for user in users_list:
+            Draw.objects.create_draw(user)

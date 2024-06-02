@@ -5,12 +5,8 @@ from poop.models import Score, User
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        user_id = 1 
-        user = User.objects.get_user_by_id(user_id)
+        users_list = User.objects.get_all_users()
 
-        scores = [
-            {'user': user, 'unique_card_count': 42, 'rank': 1},
-        ]
         
-        for score in scores:
-            Score.objects.create(**score)
+        for user in users_list:
+            Score.objects.create_score(user)

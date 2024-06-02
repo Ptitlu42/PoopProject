@@ -7,9 +7,10 @@ from .views import show_user
 
 urlpatterns = [
     path('welcome/', views.welcome, name='welcome'),
-    path ('user/<str:phone_number>/', views.show_user, name='user'),
+    path ('user/<int:user_id>/', views.show_user, name='user'),
     path ('users/', views.show_users, name='users'),
     path ('cards/', views.cards, name='cards'),
+    path ('collection/<int:user_id>/', views.show_collection, name='collection'),
 ]
 
 if settings.DEBUG:
