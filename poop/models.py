@@ -4,32 +4,22 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class UserManager(BaseUserManager):
     def create_user(self, phone_number):
-        if not phone_number:
-            raise ValueError('Phone number is required')
         user = self.model(phone_number=phone_number)
         user.save(using=self._db)
 
     def delete_user (self, phone_number):
-        if not phone_number:
-            raise ValueError('Phone number is required')
         user = self.model(phone_number=phone_number)
         user.delete()
 
     def update_user (self, phone_number, name, password, mail):
-        if not phone_number:
-            raise ValueError('Phone number is required')
         user = self.model(phone_number=phone_number)
         user.save()
 
     def get_user_by_phone_number(self, phone_number):
-        if not phone_number:
-            raise ValueError('Phone number is required')
         user = self.get_queryset().get(phone_number=phone_number)
         return user
 
     def get_user_by_id(self, user_id):
-        if not user_id:
-            raise ValueError('User ID is required')
         user = self.get_queryset().get(id=user_id)
         return user
 
@@ -111,3 +101,40 @@ class PromptManager(models.Manager):
 class Prompt(models.Model):
     text = models.TextField()
     generated_date = models.DateTimeField(auto_now_add=True)
+
+    objects = PromptManager()
+
+    def __str__(self):
+        return self.text
+
+class CardManager(models.Manager):
+    def create_card(self):
+        card = self.model()
+        card.save()
+
+    def delete_card_by_id(self, card_id):
+        card = self.get_queryset().get(id=card_id)
+        card.delete()
+
+    def get_card_by_id(self, card_id):
+        card = self.get_queryset().get(id=card_id)
+        return card
+
+    def get_card_by_prompt_id(self, prompt_id):
+        card = self.get_queryset().get(prompt_id=prompt_id)
+        return card
+
+    def get_cards_by_user_id(self, user_id):
+        cards = self.get_queryset().filter(generated_by=user_id)
+        return cards
+
+class Card (models.Model):
+    prompt_id = models.ForeignKey(Prompt, on_delete=models.CASCADE, related_name='cards')
+    generated_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cards')
+    image_path = models.FilePathField()
+    total_draw = models.IntegerField(default=0)
+
+    objects = CardManager()
+
+    def __str__(self):
+        return f"Card {self.id} - Prompt {self.prompt_id} - User {self.generated_by.phone_number}"
