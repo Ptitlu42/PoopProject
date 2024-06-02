@@ -70,3 +70,26 @@ class Draw(models.Model):
 
     def __str__(self):
         return f"Draw {self.id} - User {self.user.phone_number} - Count {self.draw_count}"
+
+class ScoreManager(models.Manager):
+    def create_score(self):
+        score = self.model()
+        score.save()
+
+    def add_card_count (self, unique_card_count):
+        score = self.model(unique_card_count=unique_card_count)
+        score.unique_card_count += 1
+        score.save()
+
+    def get_score_by_id(self, user_id):
+        score = self.get_queryset().get(user_id=user_id)
+        return score
+
+
+class Score (models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='scores')
+    unique_card_count = models.IntegerField(default=0, verbose_name="Unique card count")
+    rank = models.IntegerField(default=0, verbose_name="Rank")
+
+    def __str__(self):
+        return f"Score {self.id} - User {self.user.phone_number} - Rank {self.rank}"
