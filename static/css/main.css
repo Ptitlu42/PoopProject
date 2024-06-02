@@ -690,7 +690,6 @@ footer {
 .card {
   width: 250px;
   height: 350px;
-  border: 20px solid gradient(90deg, var(--pink), var(--yellow), var(--blue));
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 8px var(--gray);
@@ -700,16 +699,17 @@ footer {
 }
 
 .card_name {
+  margin-top: 2%;
+  height: 40px;
   border-bottom: 2px solid var(--gray);
-  padding: 5px;
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .card_image-container {
-  width: 100%;
-  height: 70%;
+  height: 230px;
+  width: 230px;
   border: 2px solid var(--gray);
   margin-top: 10px;
   text-align: center;
@@ -730,3 +730,4 @@ footer {
 .card_footer {
   margin-top: 8%;
 }
+
