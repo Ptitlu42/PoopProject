@@ -5,15 +5,12 @@ from poop.models import Card, User, Prompt
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        user_id = 1 
-        user = User.objects.get_user_by_id(user_id)
 
-        prompt_id = 1
-        prompt = Prompt.objects.get_prompt_by_id(prompt_id)
+        prompts_list = Prompt.objects.get_all_prompts()
+        users_list = User.objects.get_all_users()
 
-        cards = [
-            {'prompt': prompt, 'generated_by': user},
-        ]
+        for prompt in prompts_list:
+            for user in users_list:
+                Card.objects.create_card(prompt_id=prompt.id, generated_by=user, image_path="")
+
         
-        for card in cards:
-            Card.objects.create(**card)

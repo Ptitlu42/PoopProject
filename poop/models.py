@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from poop.scripts.image_generator import generate_image
 
 
 class UserManager(BaseUserManager):
@@ -22,6 +23,10 @@ class UserManager(BaseUserManager):
     def get_user_by_id(self, user_id):
         user = self.get_queryset().get(id=user_id)
         return user
+
+    def get_all_users(self):
+        users = self.get_queryset()
+        return users
 
 class User(AbstractBaseUser):
     phone_number = models.CharField(max_length=20, unique=True)
@@ -94,6 +99,14 @@ class PromptManager(models.Manager):
         prompt = self.get_queryset().get(id=prompt_id)
         return prompt
 
+    def get_text_by_id(self, prompt_id):
+        prompt = self.get_queryset().get(id=prompt_id)
+        return prompt.text
+
+    def get_all_prompts(self):
+        prompts = self.get_queryset()
+        return prompts
+
 
 class Prompt(models.Model):
     text = models.TextField()
@@ -105,9 +118,21 @@ class Prompt(models.Model):
         return self.text
 
 class CardManager(models.Manager):
-    def create_card(self):
-        card = self.model()
-        card.save()
+    def create_card(self, prompt_id, generated_by, image_path=""):
+        prompt = Prompt.objects.get(id=prompt_id)
+        prompt_text = prompt.text
+
+        if not self.get_queryset().filter(prompt=prompt).exists():
+            image_path = generate_image(prompt_text)
+            card = self.model(
+                prompt=prompt,
+                generated_by=generated_by,
+                image_path=image_path
+            )
+            card.save()
+            return card
+        else:
+            return None
 
     def delete_card_by_id(self, card_id):
         card = self.get_queryset().get(id=card_id)

@@ -5,12 +5,9 @@ from poop.models import User, Collection, Card
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        user_id = 1 
-        card_ids = [1]
+        user_list = User.objects.get_all_users()
+        cards_list = Card.objects.get_all_cards()
 
-        for card_id in card_ids:
-            card = Card.objects.get_card_by_id(card_id)
-            user = User.objects.get_user_by_id(user_id)
-            Collection.objects.create(user=user, card=card)
-
-        
+        for card in cards_list:
+            for user in user_list:
+                Collection.objects.create(user=user, card=card)
