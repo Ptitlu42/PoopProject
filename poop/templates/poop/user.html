@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
-</head>
+{% include 'poop/header.html' %}
+{% load static %}
 <body>
     <h1>User Profile</h1>
     <p>Phone Number: {{ user.phone_number }}</p>
@@ -13,3 +9,4 @@
     <p>Total Draw: {{ user.total_draw }}</p>
 </body>
 </html>
+{% include 'poop/footer.html' %}

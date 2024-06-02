@@ -1,0 +1,11 @@
+{% include 'poop/header.html' %}
+{% load static %}
+<body>
+    <h1>All Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} - {{ user.phone_number }} - {{ user.mail }}</li>
+        {% endfor %}
+    </ul>
+</body>
+{% include 'poop/footer.html' %}
