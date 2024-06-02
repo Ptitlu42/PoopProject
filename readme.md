@@ -64,7 +64,7 @@ erDiagram
         int id PK "Auto-increment"
         char phone_number "Phone number"
         char name "User's name"
-        char hash_password "Hashed password"
+        char password "Hashed password"
         email mail "Email address"
         datetime user_since "User since"
         int total_draw "Total cards drawn"
