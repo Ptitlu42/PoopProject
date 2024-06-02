@@ -15,5 +15,3 @@ class Command(BaseCommand):
         
         for score in scores:
             Score.objects.create(**score)
-
-        self.stdout.write(self.style.SUCCESS('Seeded the database with initial scores data'))

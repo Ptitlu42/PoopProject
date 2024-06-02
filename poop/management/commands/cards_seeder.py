@@ -14,10 +14,8 @@ class Command(BaseCommand):
         prompt = Prompt.objects.get_prompt_by_id(prompt_id)
 
         cards = [
-            {'prompt_id': prompt, 'generated_by': user},
+            {'prompt': prompt, 'generated_by': user},
         ]
         
         for card in cards:
             Card.objects.create(**card)
-
-        self.stdout.write(self.style.SUCCESS('Seeded the database with initial card data'))

@@ -11,5 +11,3 @@ class Command(BaseCommand):
         
         for user in users:
             User.objects.create(**user)
-
-        self.stdout.write(self.style.SUCCESS('Seeded the database with initial users data'))

@@ -31,9 +31,6 @@ class User(AbstractBaseUser):
     user_since = models.DateTimeField(auto_now_add=True)
     total_draw = models.IntegerField(default=0)
 
-    USERNAME_FIELD = 'phone_number'
-    REQUIRED_FIELDS = ['phone_number']
-
     objects = UserManager()
 
     def __str__(self):
@@ -59,7 +56,7 @@ class Draw(models.Model):
     draw_count = models.IntegerField(default=0, verbose_name="Draw count")
 
     def __str__(self):
-        return f"Draw {self.id} - User {self.user.phone_number} - Count {self.draw_count}"
+        return f"Draw {self.id} - User {self.user.name} - Count {self.draw_count}"
 
 class ScoreManager(models.Manager):
     def create_score(self):
@@ -82,7 +79,7 @@ class Score (models.Model):
     rank = models.IntegerField(default=0, verbose_name="Rank")
 
     def __str__(self):
-        return f"Score {self.id} - User {self.user.phone_number} - Rank {self.rank}"
+        return f"Score {self.id} - User {self.user.name} - Rank {self.rank}"
 
 class PromptManager(models.Manager):
     def create_prompt(self, text):
@@ -129,7 +126,7 @@ class CardManager(models.Manager):
         return cards
 
 class Card (models.Model):
-    prompt_id = models.ForeignKey(Prompt, on_delete=models.CASCADE, related_name='cards')
+    prompt = models.ForeignKey(Prompt, on_delete=models.CASCADE, related_name='cards')
     generated_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cards')
     image_path = models.FilePathField()
     total_draw = models.IntegerField(default=0)
@@ -137,4 +134,33 @@ class Card (models.Model):
     objects = CardManager()
 
     def __str__(self):
-        return f"Card {self.id} - Prompt {self.prompt_id} - User {self.generated_by.phone_number}"
+        return f"Card {self.id} - Prompt {self.prompt_id} - User {self.generated_by.name}"
+
+class CollectionManager(models.Manager):
+    def create_collection(self):
+        collection = self.model()
+        collection.save()
+
+    def delete_collection_by_id(self, collection_id):
+        collection = self.get_queryset().get(id=collection_id)
+        collection.delete()
+
+    def get_collection_by_id(self, collection_id):
+        collection = self.get_queryset().get(id=collection_id)
+        return collection
+
+    def get_collection_by_user_id(self, user_id):
+        collections = self.get_queryset().filter(user_id=user_id)
+        return collections
+    
+
+class Collection (models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collections')
+    card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='collections')
+    quantity = models.IntegerField(default=0)
+    owned_since = models.DateTimeField(auto_now_add=True)
+
+    objects = CollectionManager()
+
+    def __str__(self):
+        return f"Collection {self.id} - User {self.user.name} - Card {self.card.prompt_id}"

@@ -13,5 +13,3 @@ class Command(BaseCommand):
         
         for prompt in prompts:
             Prompt.objects.create(**prompt)
-
-        self.stdout.write(self.style.SUCCESS('Seeded the database with initial prompt data'))

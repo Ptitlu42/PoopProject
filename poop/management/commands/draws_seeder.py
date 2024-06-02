@@ -15,5 +15,3 @@ class Command(BaseCommand):
         
         for draw in draws:
             Draw.objects.create(**draw)
-
-        self.stdout.write(self.style.SUCCESS('Seeded the database with initial draw data'))
