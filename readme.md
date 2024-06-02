@@ -55,19 +55,8 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
 ## ⚙️ Configuration
 - **Set Your Toilet Paper Preferences**: Customize your `.env` file with the necessary configurations for your SMS gateway and database access.
 
-## 🤝 Contributing
-Feel like dropping a contribution? Fork the repository and unload your pull requests!
 
-## 📜 License
-This Poop creation is released into the public sewer under the [MIT License](LICENSE).
-
-## 🙌 Acknowledgements
-- Big shout-out to the wizards at OpenAI for providing the AI that generates our fabulous fecal friends.
-- Generated images are subject to OpenAI's usage policies and terms, so handle them like you would... precious poop.
-
-## ✉️ Contact
-For any issues that stink up the place or golden nuggets of feedback, drop us a line at [P'tit Lu](mailto:lucas.beyer@gmx.fr).
-
+## 🛢️ BDD conception
 ```mermaid
 erDiagram
     USER ||--o{ CARD : "generated_by"
@@ -121,3 +110,16 @@ erDiagram
         int rank "User rank"
     }
 ```
+
+## 🤝 Contributing
+Feel like dropping a contribution? Fork the repository and unload your pull requests!
+
+## 📜 License
+This Poop creation is released into the public sewer under the [MIT License](LICENSE).
+
+## 🙌 Acknowledgements
+- Big shout-out to the wizards at OpenAI for providing the AI that generates our fabulous fecal friends.
+- Generated images are subject to OpenAI's usage policies and terms, so handle them like you would... precious poop.
+
+## ✉️ Contact
+For any issues that stink up the place or golden nuggets of feedback, drop us a line at [P'tit Lu](mailto:lucas.beyer@gmx.fr).
