@@ -93,3 +93,21 @@ class Score (models.Model):
 
     def __str__(self):
         return f"Score {self.id} - User {self.user.phone_number} - Rank {self.rank}"
+
+class PromptManager(models.Manager):
+    def create_prompt(self, text):
+        prompt = self.model(text=text)
+        prompt.save()
+
+    def delete_prompt_by_id(self, prompt_id):
+        prompt = self.get_queryset().get(id=prompt_id)
+        prompt.delete()
+
+    def get_prompt_by_id(self, prompt_id):
+        prompt = self.get_queryset().get(id=prompt_id)
+        return prompt
+
+
+class Prompt(models.Model):
+    text = models.TextField()
+    generated_date = models.DateTimeField(auto_now_add=True)
