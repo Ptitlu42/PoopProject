@@ -9,12 +9,13 @@ from openai import OpenAI
 from config import openai_key
 
 def generate_image(ai_prompt):
+
+    prompt = "Generate an image of ' " + ai_prompt + " 'dans un style minimaliste et mignon, le CACA doit être l'élément principal de l'image"
     client = OpenAI(api_key=openai_key)
 
     response = client.images.generate(
         model="dall-e-3",
-        prompt=ai_prompt,
-        size="512x512",
+        prompt=prompt,
         quality="standard",
         n=1,
     )
@@ -33,4 +34,5 @@ def generate_image(ai_prompt):
     with open(file_path, 'wb') as f:
         f.write(image_data)
 
+    print (f"Image " + ai_prompt + " saved to: " + file_path)
     return file_path

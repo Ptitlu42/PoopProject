@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         prompts_list = []
-        while len(prompts_list) < 10:
+        while len(prompts_list) < 4:
             prompt = generate_prompt()
             prompts_list.append(prompt)
 
