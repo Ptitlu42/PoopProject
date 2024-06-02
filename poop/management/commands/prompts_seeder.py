@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand
-from poop.models import Prompt 
-from poop.models import User, UserManager
+from poop.models import Prompt, User
 
 
 class Command(BaseCommand):

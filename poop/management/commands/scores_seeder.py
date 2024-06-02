@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand
-from poop.models import Score 
-from poop.models import User, UserManager
+from poop.models import Score, User
 
 
 class Command(BaseCommand):

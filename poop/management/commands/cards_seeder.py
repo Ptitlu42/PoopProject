@@ -1,7 +1,5 @@
 from django.core.management.base import BaseCommand
-from poop.models import Card 
-from poop.models import User, UserManager
-from poop.models import Prompt, PromptManager
+from poop.models import Card, User, Prompt
 
 
 class Command(BaseCommand):

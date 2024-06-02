@@ -121,6 +121,14 @@ class CardManager(models.Manager):
         card = self.get_queryset().get(prompt_id=prompt_id)
         return card
 
+    def get_all_cards(self):
+        cards = self.get_queryset()
+        return cards
+
+    def get_all_cards_by_user_id(self, user_id):
+        cards = self.get_queryset().filter(generated_by=user_id)
+        return cards
+
     def get_cards_by_user_id(self, user_id):
         cards = self.get_queryset().filter(generated_by=user_id)
         return cards
@@ -153,7 +161,6 @@ class CollectionManager(models.Manager):
         collections = self.get_queryset().filter(user_id=user_id)
         return collections
     
-
 class Collection (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='collections')
     card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='collections')
