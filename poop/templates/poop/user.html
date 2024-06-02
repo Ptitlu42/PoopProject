@@ -1,0 +1,12 @@
+{% include 'poop/header.html' %}
+{% load static %}
+<body>
+    <h1>User Profile</h1>
+    <p>Phone Number: {{ user.phone_number }}</p>
+    <p>Name: {{ user.name }}</p>
+    <p>Email: {{ user.mail }}</p>
+    <p>User Since: {{ user.user_since }}</p>
+    <p>Total Draw: {{ user.total_draw }}</p>
+</body>
+</html>
+{% include 'poop/footer.html' %}

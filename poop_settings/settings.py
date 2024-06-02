@@ -30,7 +30,6 @@ ALLOWED_HOSTS = []
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
     BASE_DIR / "generated",
 ]
 

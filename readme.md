@@ -55,6 +55,62 @@ Welcome to the ultimate throne room where AI and humor collide to create the mos
 ## ⚙️ Configuration
 - **Set Your Toilet Paper Preferences**: Customize your `.env` file with the necessary configurations for your SMS gateway and database access.
 
+
+## 🛢️ BDD conception
+```mermaid
+erDiagram
+    USER ||--o{ CARD : "generated_by"
+    USER {
+        int id PK "Auto-increment"
+        char phone_number "Phone number"
+        char name "User's name"
+        char password "Hashed password"
+        email mail "Email address"
+        datetime user_since "User since"
+        int total_draw "Total cards drawn"
+    }
+    
+    PROMPT ||--o{ CARD : "prompt_id"
+    PROMPT {
+        int id PK "Auto-increment"
+        char text "Prompt text"
+        datetime generated_date "Prompt generated date"
+    }
+    
+    USER ||--o{ COLLECTION : "user_id"
+    COLLECTION {
+        int id PK "Auto-increment"
+        int card_id FK "Foreign key to CARD"
+        int user_id FK "Foreign key to USER"
+        int quantity "Quantity owned"
+        datetime owned_since "Owned since"
+    }
+    
+    USER ||--o{ DRAW : "user_id"
+    DRAW {
+        int id PK "Auto-increment"
+        int user_id FK "Foreign key to USER"
+        datetime date "Draw date"
+        int draw_count "Draw count"
+    }
+    
+    CARD {
+        int id PK "Auto-increment"
+        int prompt_id FK "Foreign key to PROMPT"
+        int generated_by FK "Foreign key to USER"
+        file image_path "Path to image file"
+        int total_draw "Total times drawn"
+    }
+    
+    USER ||--o{ SCORE : "user_id"
+    SCORE {
+        int id PK "Auto-increment"
+        int user_id FK "Foreign key to USER"
+        int unique_card_count "Unique cards count"
+        int rank "User rank"
+    }
+```
+
 ## 🤝 Contributing
 Feel like dropping a contribution? Fork the repository and unload your pull requests!
 

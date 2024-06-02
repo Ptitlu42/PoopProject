@@ -111,8 +111,6 @@ animal_list = [
     "paresseux",
     "nandou",
     "varan",
-    "Lemon💜",
-    "Elo💜",
     "hippopotame",
     "castor",
     "chimpanzé",
@@ -213,7 +211,7 @@ color_list = [
     "noir et cyan",
 ]
 
-def generate_random_message():
+def generate_prompt():
     adjective = random.choice(adjective_list)
     animal = random.choice(animal_list)
     color =  random.choice(color_list)
