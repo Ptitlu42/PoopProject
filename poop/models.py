@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from poop.scripts.image_generator import generate_image
+import re
 
 
 class UserManager(BaseUserManager):
@@ -118,21 +119,26 @@ class Prompt(models.Model):
         return self.text
 
 class CardManager(models.Manager):
+
     def create_card(self, prompt_id, generated_by, image_path=""):
         prompt = Prompt.objects.get(id=prompt_id)
         prompt_text = prompt.text
-
+        
         if not self.get_queryset().filter(prompt=prompt).exists():
             image_path = generate_image(prompt_text)
+            
             card = self.model(
                 prompt=prompt,
                 generated_by=generated_by,
                 image_path=image_path
             )
             card.save()
+            print (f"Card created: {card.prompt.text}")
             return card
         else:
             return None
+
+    
 
     def delete_card_by_id(self, card_id):
         card = self.get_queryset().get(id=card_id)
